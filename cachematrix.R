@@ -26,13 +26,13 @@ makeCacheMatrix <- function(x = matrix()) {
     # Every time the matrix changes, the `inverse matrix` is reset to NULL
     # so it will be calculated again
     set <- function(y) {
+            # save the original "matrix" data in the parent environment
             x <<- y
             s <<- NULL
     }
 
-    # Return the `inverse matrix'
-    # It may be NULL
-    get <- function() s
+    # Return the original "matrix" data
+    get <- function() x
 
     # Cache the `inverse matrix` in the parent environment
     setsolve <- function(solve) s <<- solve
